@@ -4,14 +4,14 @@ import matplotlib.pyplot as plt
 from scipy.io.wavfile import read
 
 # === 1. Wczytanie obrazu panoramicznego ===
-image_path = "zdjecia_3d/R0010631.JPG"  # Zamień na własną ścieżkę
+image_path = "zdjecia_3d/R0010631.JPG"
 room_image = cv2.imread(image_path)
 room_image = cv2.cvtColor(room_image, cv2.COLOR_BGR2RGB)
 
 height, width, _ = room_image.shape
 
 # === 2. Wczytanie pliku B-Format (W, X, Y, Z) ===
-wav_path = "pliki_wave/M0008_S02_R03_AMBIX.wav"  # Zamień na własną ścieżkę
+wav_path = "pliki_wave/M0008_S02_R03_AMBIX.wav"
 sample_rate, audio_data = read(wav_path)
 
 if audio_data.ndim != 2 or audio_data.shape[1] != 4:
